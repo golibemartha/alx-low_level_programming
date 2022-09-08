@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * main - main block and entry ppint
+ * main - main block
  * Return: 0
  */
 int main(void)
