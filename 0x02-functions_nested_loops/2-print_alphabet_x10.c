@@ -1,11 +1,12 @@
 #include "main.h"
+
 /**
- * main - entry point
- * Description - print 10* the alphabet
+ * print_alphabet_x10 - print alphabet [a..z]
  * in lowercase
- * return: 0
+ * return: always void
  */
-void print_alphabet_x10(void);
+/* the function is of type void */
+void print_alphabet_x10(void)
 {
 	char i;
 	int j;
