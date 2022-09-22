@@ -1,9 +1,5 @@
 #include <stdio.h>
-/**
-  * main - entry point
-  * description: prints a[2] = 98
-  * Return: 0
-  */
+/* description: prints a[2] = 98 */
 int main(void)
 {
 	int n;
