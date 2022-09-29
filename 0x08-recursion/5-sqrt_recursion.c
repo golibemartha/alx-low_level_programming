@@ -1,10 +1,10 @@
 #include "main.h"
 /**
-  * _sqrt_recursions - returns the natural square of a number
+  * _sqrt_recursion - returns the natural square of a number
   * @n: number
   * Return: the natural square
   */
-int _sqrt_recursions(int n)
+int _sqrt_recursion(int n)
 {
 	return (halp(n, 1));
 }
