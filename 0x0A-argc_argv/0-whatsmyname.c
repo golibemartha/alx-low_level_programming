@@ -6,13 +6,10 @@
   * @argv: argument vector
   * Return: 0
   */
-int main(int argc, char *argv[])
+int main(int argc __attribute__((unused)), char *argv[])
 {
-	(void) argc;
 
-	int i = 0;
+	printf("%s\n", *argv);
 
-	printf("%s\n", argv[i]);
-
-	return (i);
+	return (0);
 }
