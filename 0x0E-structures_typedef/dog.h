@@ -2,7 +2,7 @@
 #define STRTYP
 /**
   *struct dog - structure of a dog
-  *@name: name of dog 
+  *@name: name of dog
   *@age: age of dog
   *@owner: owner of dog
   */
