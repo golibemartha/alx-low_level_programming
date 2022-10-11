@@ -2,6 +2,7 @@
 #include "dog.h"
 /**
   *free_dog - free memory from a dog structure
+  *Description: a function that frees dogs
   *@d: pointee to struct dog
   *Return: void
   */
