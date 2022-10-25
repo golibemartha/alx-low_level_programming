@@ -1,53 +1,50 @@
 #include "lists.h"
-
 /**
- * insert_nodeint_at_index - a function that inserts a new node at
- *                           a given position
+ * insert_nodeint_at_index - add node to listint_t list at index given
+ * @head: head of the list
+ * @index: index to put new node
+ * @n: int to store in node
  *
- * @head: pointer to the first node of the list
- * @idx: is the index of the list where the new node should be added
- * @n: element to add to the new node
- *
- * Return: NULL if anything fails or the address of the new node
-*/
-listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
+ * Return: Address of new node, NULL if failed
+ */
+listint_t *insert_nodeint_at_index(listint_t **head, unsigned int index, int n)
 {
-	listint_t *new_node, *current;
-	unsigned int index;
+	unsigned int i;
+	listint_t *tmpnode, *new;
 
-	current = *head; /*place first node at current*/
-
-	new_node = malloc(sizeof(listint_t));
-	if ((*head == NULL && idx != 0) || new_node == NULL)
+	if (head == NULL)
 		return (NULL);
-
-	new_node->n = n; /* add our element to the new node*/
-
-	/*iterate list to node position idx - 2*/
-	for (index = 0; head != NULL && index < idx - 1; index++)
+	if (*head == NULL)
 	{
-		current = current->next;
-		if (current == NULL)
+		new = malloc(sizeof(listint_t));
+		if (new == NULL)
 			return (NULL);
+		*head = new, new->next = NULL, new->n = n;
+		return (new);
+	}
+	else if (index == 0)
+	{
+		new = malloc(sizeof(listint_t));
+		if (new == NULL)
+			return (NULL);
+		new->next = *head, new->n = n, *head = new;
+		return (new);
 	}
 
-	if (idx == 0) /*if the index for new node is 0*/
+	i = 1, index++, tmpnode = *head;
+	while (i < index - 1 && tmpnode->next != NULL)
+		tmpnode = tmpnode->next,	i++;
+	if (i != index - 1)
 	{
-		/*first node will be moved to second node*/
-		new_node->next = *head;
-		/*new node will be placed as the first node*/
-		*head = new_node;
-	}
-	else if (current->next) /*if index where to add our new node is not 0*/
-	{
-		new_node->next = current->next; /*place current node after new node*/
-		current->next = new_node;/*set the new node at index idx*/
-	}
-	else /*if node position is not present in the list*/
-	{
-		new_node->next = NULL;/*set next addr as NULL, indicates last node*/
-		current->next = new_node;/*set the new node at the last position in list*/
+		return (NULL);
 	}
 
-	return (new_node);
+	new = malloc(sizeof(listint_t));
+	if (new == NULL)
+		return (NULL);
+	new->n = n;
+	new->next = tmpnode->next;
+	tmpnode->next = new;
+
+	return (new);
 }
